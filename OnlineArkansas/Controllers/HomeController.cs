@@ -58,7 +58,7 @@ namespace OnlineArkansas.Controllers
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Timeout = 20000,
-                Credentials = new System.Net.NetworkCredential("aecamrg@gmail.com", "123aecamrg")
+                Credentials = new System.Net.NetworkCredential()
             };
 
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
