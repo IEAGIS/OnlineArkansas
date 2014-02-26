@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Maps";
+}
+@section Scripts
+{
+    <script src="~/Scripts/maps.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.lightbox.min.js" type="text/javascript"></script>
+}		
+		<div id="container">
+			<div id="content" role="main" >
+				<h2>Arkansas Demographic Maps</h2>
+				<div id="accordion">
+					<h4>2010 Census</h4>
+					<div>
+						<div id="subaccordion"> 
+							<h4>Median Age</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="Median_Age_Black_Total_2000_2010.pdf"><img src="~/img/ar_small_map_yellow.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="#" id="map1">Median Age Black Total 2000-2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Median_Age_Hispanic_Female_2000_2010.pdf"><img src="~/img/ar_small_map_yellow.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Median_Age_Hispanic_Female_2000_2010.pdf">Median Age Hispanic Female 2000-2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Median_Age_Hispanic_Male_2000_2010.pdf"><img src="~/img/ar_small_map_yellow.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Median_Age_Hispanic_Male_2000_2010.pdf">Median Age Hispanic Male 2000-2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Median_Age_Hispanic_Total_2000_2010.pdf"><img src="~/img/ar_small_map_yellow.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Median_Age_Hispanic_Total_2000_2010.pdf">Median Age Hispanic Total 2000-2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Median_Age_White_Total_2000_2010.pdf"><img src="~/img/ar_small_map_yellow.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Median_Age_White_Total_2000_2010.pdf">Median Age White Total 2000-2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Percent_Change_Black_2000_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Percent_Change_Black_2000_2010_by_County.pdf">Percent Change Black 2000-2010 by County</a></font>  <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="Percent_Change_White_2000_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="Percent_Change_White_2000_2010_by_County.pdf">Percent Change White 2000-2010 by County</a></font>
+							</div>
+							<h4>Total Population</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Total_population_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Total_population_2010_by_County.pdf">2010 Total Population: Arkansas by County</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Change_in_Pop_2000_to_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Change_in_Pop_2000_to_2010_by_County.pdf">2000 - 2010 Population Changes: Arkansas by County</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Population_18_Plus_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="46" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Population_18_Plus_2010_by_County.pdf">Total Population Age 18 and Over by County: 2010</a></font>
+							</div>
+							<h4>White Population</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Total_White_Population_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Total_White_Population_2010_by_County.pdf"> Total White Population Arkansas by County: 2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/White_Population_18_Plus_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/White_Population_18_Plus_2010_by_County.pdf">White Population Age 18 and Over by County: 2010</a></font>
+							</div>
+							<h4>Black Population</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Total_Black_Population_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="46" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Total_Black_Population_2010_by_County.pdf">Total Black Population by County: 2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Black_Population_18_Plus_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Black_Population_18_Plus_2010_by_County.pdf">Black Population age 18 and over by County: 2010</a></font>
+							</div>
+							<h4>Hispanic Population</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Total Hispanic_or_Latino_Population_by_County_2010.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Total Hispanic_or_Latino_Population_by_County_2010.pdf">Total Hispanic or Latino Population by County: 2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Hispanic_Percent_Change_2000_to_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Hispanic_Percent_Change_2000_to_2010_by_County.pdf">2000 - 2010 Hispanic or Latino Population Changes: Arkansas by County</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Hispanic_Population_18_Plus_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Hispanic_Population_18_Plus_2010_by_County.pdf">Hispanic or Latino Population age 18 and over by County: 2010</a></font>
+							</div>
+							<h4>Other Race</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Total_Other_Race_Population_by_County_2010.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Total_Other_Race_Population_by_County_2010.pdf">Total Other Races Population: Arkansas, by County: 2010</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Other_Race_Population_18_Plus_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Other_Race_Population_18_Plus_2010_by_County.pdf">Other Races Population Age 18 and Over; Arkansas, by County: 2010</a></font>
+							</div>
+							<h4>Housing Characteristics</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="2010Census/Occupied_Housing_Units_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Occupied_Housing_Units_2010_by_County.pdf">Number and Percent Occupied Housing Units; Arkansas by County: 2010</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="2010Census/Vacant_Housing_Units_2010_by_County.pdf"><img src="~/img/ar_small_map_blue.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="2010Census/Vacant_Housing_Units_2010_by_County.pdf">Number and Percent Vacant Housing Units; Arkansas by County: 2010</a></font>
+							</div>
+						</div>
+					</div>
+				
+						<h4>American Community Survey</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="~/Map/SchoolDist" target="_blank"><img src="~/img/ar_small_map_school.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="~/Map/SchoolDist" target="_blank">Arkansas School Districts and Cities</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/school%20districts%20and%20adm.pdf"><img src="~/img/ar_small_map_school.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/school%20districts%20and%20adm.pdf">School Districts and Average Daily Membership; Arkansas: 2000</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/School_District_by_Arkansas_House_District.pdf"><img src="~/img/ar_small_map_school.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/School_District_by_Arkansas_House_District.pdf">2007 School Districts by Arkansas House District</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/School_District_by_Arkansas_Senate_District.pdf"><img src="~/img/ar_small_map_school.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/School_District_by_Arkansas_Senate_District.pdf">2007 School Districts by Arkansas Senate District</a></font>
+							</div>
+							<h4>Other</h4>
+							<div>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/C_siesmic.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="38" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/C_siesmic.pdf">Clay County Seismic Activity</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/congressional_dis_90_2000.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/congressional_dis_90_2000.pdf">Change in Congressional Boundaries; Arkansas: 1990 - 2000</a></font> <br/> <br/><br/>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/congressional_dis_90_2000.pdf">Change in Congressional Boundaries; Arkansas: 1990 - 2000</a></font> <br/> <br/><br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/2000_congressional_district.pdf"><img src="~/img/ar_small_map_misc.gif" width="50" height="45" class="button"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/2000_congressional_district.pdf">Congressional Districts; Arkansas: 2000</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/Arkansas_Fire_Districts_2013.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/Arkansas_Fire_Districts_2013.pdf">Fire Districts; Arkansas: 2013</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/jonesboro.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/jonesboro.pdf">Jonesboro, Arkansas Employment Center, Employee Residence Distribution by Zip Code</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/landslide.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/landslide.pdf">Landslide Potential with Arkansas' Incorporated Places</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/House_Districts2k_update.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/House_Districts2k_update.pdf">House District Boundaries; Arkansas: 2000</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/House_Districts_1990.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/House_Districts_1990.pdf">House District Boundaries; Arkansas: 1990</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/Senate_Districts_2k_update.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/Senate_Districts_2k_update.pdf">Senate District Boundaries; Arkansas: 2000</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/Senate_Districts_1990.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/Senate_Districts_1990.pdf">Senate District Boundaries; Arkansas: 1990</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/metro_micro_politan_areas.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/metro_micro_politan_areas.pdf">Metropolitan, Micropolitan and Combined Statistical Areas; Arkansas: June 9, 2003</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/metro%20areas.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/metro%20areas.pdf">Metropolitan Statistical Areas; Arkansas: April 1, 2000</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/torn_deaths.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/torn_deaths.pdf">Number of Tornado Deaths in Arkansas by County:&nbsp; 1950 - 1998</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/pop_torn.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/pop_torn.pdf">Population Density and Tornado Occurrence in Arkansas</a></font> <br/> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/GPS_site.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/GPS_site.pdf">Site of the University of Arkansas at Little Rock GPS Base Station</a></font> <br/> <br/>
+								<font face="Trebuchet MS"><a href="http://argis.ualr.edu/OtherMaps/torn_risk.pdf"><img src="~/img/ar_small_map_misc.gif" class="button" height="45" width="50"></a></font>
+								<font face="Trebuchet MS" size="-1"><a href="http://argis.ualr.edu/OtherMaps/torn_risk.pdf">Tornado Risk Areas in the Conterminous United States</a> </font>
+							</div>
+				</div>
+			</div><!-- #content -->
+		</div><!-- #container -->

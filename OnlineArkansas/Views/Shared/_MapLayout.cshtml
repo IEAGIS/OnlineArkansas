@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>@ViewBag.Title - Online Arkansas</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+        <!--link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/dojo/dijit/themes/claro/claro.css"-->
+		<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/dojo/dijit/themes/tundra/tundra.css">
+		<link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+        <link href="~/Content/map.css" rel="stylesheet" type="text/css" />
+        <link href="~/Scripts/home/css/HomeButton.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            #HomeButton {
+              position: absolute;
+              top: 86px;
+              left: 25px;
+              z-index: 50;
+            }
+
+        </style>
+        <script type="text/javascript">
+            /*var djConfig = {
+                //parseOnLoad: true,
+                packages: [{
+                    "name": "agsjs",
+                    //"location": location.pathname.replace(/\/[^/]+$/, "")+'/agsjs'
+                    "location": '@Url.Content("~/Scripts/agsjs")'
+                    // "location": 'http://gmaps-utility-gis.googlecode.com/svn/tags/agsjs/2.02/xbuild/agsjs' // for xdomain load
+                }]
+            };*/
+            var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+            var dojoConfig = {
+                // The locationPath logic below may look confusing but all its doing is 
+                // enabling us to load the api from a CDN and load local modules from the correct location.
+                packages: [{
+                    name: "modules",
+                    location: '@Url.Content("~/Scripts/home/js")'
+                }, {
+                    name: "zesri",
+                    location: '@Url.Content("~/Scripts/home/js")'
+                }]
+            };
+        </script>
+        <script type="text/javascript" src="http://js.arcgis.com/3.8/"></script>
+    </head>
+    <body class="tundra">
+    <!-- Render page content here -->
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+    </body>
+</html>

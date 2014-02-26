@@ -1,0 +1,102 @@
+.ualr-widget-profile-gallery {
+	
+}
+
+.ualr-widget-profile-gallery-body {
+	
+}
+
+.ualr-widget-profile-gallery ul, ualr-widget-profile-gallery ol {
+	list-style: none;
+	width: 100%;
+	margin: 0;
+}
+
+.ualr-widget-profile-gallery-feed li {
+	float: left; 
+	border: 1px dotted grey !important; 
+	background-color: #6e2639; 
+	padding: 0px; 
+	margin-bottom: 30px; 
+}
+
+.ualr-widget-profile-gallery-feed li a {
+	color: white !important;
+}
+
+.ualr-widget-profile-gallery-feed img {
+	border: none !important;
+}
+
+.ualr-widget-profile-gallery-feed.align-center {
+	width: 99.999% !important;
+	margin: 0 auto !important;
+}
+
+.ualr-widget-profile-gallery-feed.align-center li {
+	margin-left: 9px;
+	margin-right: 9px;
+
+}
+
+.ualr-widget-profile-gallery-feed.align-left li {
+	margin-left: 0;
+	margin-right: 18px;
+
+}
+
+.ualr-widget-profile-gallery-feed.align-right li {
+	margin-left: 18px;
+	margin-right: 0;
+
+}
+
+/* Thumbnails */
+.ualr-widget-profile-gallery-thumbnail {
+	margin-bottom: 5px; 
+	border: 0px !important;	
+}
+
+.ualr-widget-profile-gallery-thumbnail-spacer {
+	text-indent: -9999px;
+	background-color: grey !important;
+	margin-bottom: 9px;
+}
+
+.ualr-widget-profile-gallery-thumbnail-spacer a {
+	font-size: 2.0em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* Labels */
+.ualr-widget-profile-gallery-label {
+	clear: both;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	text-align: center; 
+	padding: 0px 4px 0px 4px; 
+	margin: 0 0 18px 0 !important;
+	line-height: 1.1;
+}
+
+.ualr-widget-profile-gallery-feed.size-small .ualr-widget-profile-gallery-label {
+	font-size: 14px !important;
+}
+
+.ualr-widget-profile-gallery-feed.size-large .ualr-widget-profile-gallery-label {
+	font-size: 28px !important;
+}
+
+.ualr-widget-profile-gallery-feed.no-labels {
+	line-height: 0;
+}
+
+.ualr-widget-profile-gallery-feed.no-labels li {
+	background-color: white !important;
+}
+
+.ualr-widget-profile-gallery-feed.no-labels .ualr-widget-profile-gallery-thumbnail {
+	margin: 0;
+}
+

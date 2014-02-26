@@ -1,0 +1,48 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_MapLayout.cshtml";
+    ViewBag.Title = "Arkansas School Districts and Cities";
+}
+@section Scripts
+{
+    <script src="~/Scripts/schoolDist.js" type="text/javascript"></script>
+}
+
+	<div id="header">
+			<span class="soa">UALR GIS Applications Laboratory  -  Arkansas School Districts and Cities</span>		
+	</div>
+	<div class="largeBarWhite"></div>
+        <div id="content" data-dojo-type="dijit.layout.BorderContainer" design="headline" gutters="true" style="width: 100%; height: 90%; margin: 0;">				
+            <div data-dojo-type="dijit.layout.ContentPane" id="leftPane" region="left" splitter="true">				
+				<div data-dojo-type="dijit.layout.AccordionContainer" style="height: 300px;" id="accordion">
+					<div data-dojo-type="dijit.layout.ContentPane" title="Search / Print" selected="true" id="accToc">
+						<strong>Search</strong><br/><br/>
+                        <input type="radio" name="searchParam" id="radpar" checked value="distDiv"/> <label for="radpar">School District</label>
+						<input id="radpro" type="radio" value="cityDiv" name="searchParam" ><label for="radpro">City</label>						
+						<br>
+						<div id="distDiv" style="display:block">
+						    <br/>
+						    <input id="distSearch" data-dojo-type="dijit.form.FilteringSelect" searchAttr="Name" name="distSearch" pageSize="20" fetchProperties="{sort:[{attribute:'Name', descending:false}]}" placeHolder="Select a school dist from the list"/>
+						    &nbsp;&nbsp;<br/><br/>
+						</div>
+						<div id="cityDiv" style="display:none">
+						    <br/>
+						    <input id="citySearch" data-dojo-type="dijit.form.FilteringSelect" searchAttr="CITY_NAME" name="citySearch" pageSize="20" fetchProperties="{sort:[{attribute:'CITY_NAME', descending:false}]}" placeHolder="Select a county from the list"/>
+						    &nbsp;&nbsp;<br/><br/>
+						</div>
+						<hr/>
+						<strong>Print</strong><br/><br/>
+						Document Title: <textarea rows=5 cols=30 id="map_name" name="map_name">AR School Districts</textarea><br /><br/>
+						<span id="printButton"></span>&nbsp;
+					</div>									
+				</div>	
+            </div>			
+            <div id="mapDiv" data-dojo-type="dijit.layout.ContentPane" region="center">
+                <div id="HomeButton"></div>		
+				<!-- span style="float:right;z-index:99;position:absolute;top:10px;right:20px;">						
+						<button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'dijitEditorIconPaste', showLabel: true" onclick="navToolbar.zoomToPrevExtent();" type="button">Previous Extent</button>
+						<button data-dojo-type="dijit.form.Button" id="reset" data-dojo-props="iconClass:'dijitPrintIcon', showLabel: true" type="button">Reset Map</button>
+				</span -->
+            </div>
+        </div>
+        <div class="largeBarWhite"></div>
+        <div class="largeBarWhite"></div>

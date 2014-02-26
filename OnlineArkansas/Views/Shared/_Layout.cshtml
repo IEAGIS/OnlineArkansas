@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="IE=10,9" >
+        <title>@ViewBag.Title - Online Arkansas</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" id="ualr-widget-profile-gallery-widget-styles-css" href="http://ualr.edu/safety/wp-content/themes/ualr/widgets/profile-gallery/css/widget.css?ver=3.3.2" type="text/css" media="all"/>
+        <meta name="viewport" content="width=device-width" />
+        <link href="~/Content/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+       <!-- @Styles.Render("~/Content/themes/smoothness/jquery-ui.css"); -->
+        @Styles.Render("~/Content/themes/smoothness/css")
+        @Styles.Render("~/Content/oacss")
+        @using OnlineArkansas.Helpers
+    </head>
+    <body class="home page page-id-52 page-parent page-template-default is-3-column has-site-navigation has-sidebar">
+        <div id="masthead">
+	        <span class="signature"><a href="http://ualr.edu/" onClick="_gaq.push(['_trackEvent', 'Navigation - Logo', 'Tools', 'UALR Logo']);">University of Arkansas at Little Rock</a></span>
+        </div><!-- #masthead -->
+	
+	    <div id="wrapper" class="hfeed">
+		    <div id="header">
+		
+			    <div id="branding">				    
+					<span><a href="/" title="GIS Applications Laboratory" rel="home" onClick="_gaq.push(['_trackEvent', 'Site Title (960px)', 'Select', 'GIS Laboratory']);"><!--br/>GIS Applications Laboratory--></a></span>			
+			    </div><!-- #branding -->
+
+			    <div id="access-nav">
+				    <div class="skip-link screen-reader-text">
+					    <ul>
+					    <li><a href="#content" title="Skip to content">Skip to content</a></li>
+					    </ul>
+				    </div>
+			    </div><!-- #access-nav -->
+                			
+		    </div><!-- #header -->
+	        <div id="main">				
+		        <div id="toc-nav">
+			        <ul class="gismenu">
+                        @Html.MenuItem("Home", "Index", "Home")
+                        @Html.MenuItem("Training", "Training", "Home")                        
+                        @Html.MenuItem("Maps", "Maps", "Home")
+                        @Html.MenuItem("Location", "Location", "Home")  
+                        @Html.MenuItem("GPS Info", "GPSInfo", "Home")                       
+                        @Html.MenuItem("Resources", "Resources", "Home")                       
+                        @Html.MenuItem("Staff", "Staff", "Home")
+                        @Html.MenuItem("Assistance", "Assistance", "Home")                       
+			        </ul>						
+		        </div><!-- #toc-nav -->
+
+                <!-- Render page content here -->
+                @RenderBody()
+
+		        <div id="sidebar" class="widget-area" role="complementary">
+			            <ul class="xoxo">
+				            <li id="ualr_single_link_feature-7" class="widget-container cf widget_ualr_single_link_feature">		
+					            <a href="http://argis.ualr.edu/arfiredist" target="_blank" title="Arkansas Fire Districts">
+                                        <img alt="Arkansas" src="~/img/ArFire.png"/>							                
+					            </a>
+                            </li>
+                            <!--li id="ualr_single_link_feature-12" class="widget-container cf widget_ualr_single_link_feature">		
+					            <h3 class="widget-title">Trojan Trolley</h3>		
+					            <div class="icon left">
+						            <a href="http://ualr.edu/safety/home/parking-student-patrol-page/trojan-trolley-parking-shuttle/" title="Read more�">
+							            <img src="http://ualr.edu/www/wp-content/uploads/2012/01/trolley1.jpg" />
+						            </a>
+					            </div>
+				
+				
+					            <p>The Trojan Trolley system offers safe, convenient transit for the UALR community.</p>
+				
+					            <p class="link-continue"><a href="http://ualr.edu/safety/home/parking-student-patrol-page/trojan-trolley-parking-shuttle/">Read more�</a></p>
+				
+				            </li-->	
+			            </ul>
+		        </div><!-- #sidebar .widget-area -->
+					
+	        </div><!-- #main -->
+
+	        <div id="footer" role="contentinfo">
+		
+			            <div id="footer-widget-area" role="complementary">
+
+				            <div id="static" class="widget-area 1-widgets">
+					            <ul class="xoxo">
+						            <li id="site-contact" class="widget-container widget-text">
+							            <h5 class="widget-title">Contact</h5>
+							            <div class="vcard">
+								            <ul>								
+									            <li>
+										            <div class="org">GIS Applications Laboratory</div>
+									            </li>
+
+									            <li>
+										            <div class="adr">
+											            <div class="street-address">
+												            2801 S. University Avenue<br />
+											            </div>														
+											            <span class="locality">Little Rock</span>, <span class="region">AR</span> <span class="postal-code">72204</span><br />								 
+										            </div>
+										            </li>							
+									            <li>
+										            <span class="screen-reader-text">Phone:</span><div class="tel"><span class="value">501.569.8519</span><br /></div>
+									            </li>
+									            <li id="more-contact-info">@Html.AbsolutePath("More Contact Information","Assistance","Home")</li>							 
+								            </ul>
+							            </div>
+						            </li>
+					            </ul>
+				            </div><!-- #static .widget-area -->
+				            <div id="dynamic-footer" class="widget-area 1-widgets">
+					            <ul class="xoxo">
+						            <li id="rss-3" class="widget-container cf widget_rss">
+                                        <ul>
+							                <h5 class="widget-title">
+                                            <a class='rsswidget' href='http://feeds.esri.com/Esri-News' target="_blank" title='Syndicate this content'>
+								                <img style='border:0' width='14' height='14' src='http://ualr.edu/safety/wp-includes/images/rss.png' alt='RSS' />
+                                            <!--/a> 
+								            <a class='rsswidget' href='#' title=''-->GIS News</a></h5>
+                                        
+                                            <li>
+                                                <a class='rsswidget' href='http://feeds.esri.com/~r/Esri-News/~3/bpksIYiOrA8/esri-launches-geotrigger-service-for-mobile-developers' target="_blank" title='Geotrigger is making it easier for developers to add location awareness and messaging to their iPhone and Android apps.'>Esri Launches Geotrigger Service for Mobile Developers</a>
+                                            </li>
+                                            <li>
+                                                <a class='rsswidget' href='http://feeds.esri.com/~r/Esri-News/~3/-1R_mWZlQiM/' target="_blank" title='Geospatial information is transforming the way we see and understand the world around us.'>The Power of Mapping</a>
+                                            </li>
+                                            <li>
+                                                <a class='rsswidget' href='http://feeds.esri.com/~r/Esri-News/~3/HUci32GEOwU/UK-floods-weather-and-storms.html' target="_blank" title='Esri map shows videos, tweets, and information about the flooding in the UK.'>UK floods: weather and storms</a>
+                                            </li>
+                                            <li>
+                                                <a class='rsswidget' href='http://feeds.esri.com/~r/Esri-News/~3/Y_E7gRZMbGM/Lincoln-NE-Named-a-Top-10-City-for-Affordable-Health-Care-2014--245899641.html' target="_blank" title='Esri survey data shows the average per capita spending on health care and related items.'>Lincoln Named a Top 10 City for Affordable Health Care</a>
+                                            </li>
+                                            <li>
+                                                <a class='rsswidget' href='http://feeds.esri.com/~r/Esri-News/~3/oG36gAHv6lY/' target="_blank" title='Esri has received the Business Spotlight Award from the Economic Development Center St. Charles.'>Business: Open in O'Fallon</a>
+                                             </li>
+                                         </ul>
+                                    </li>                                		
+						            <li id="ualr_single_link_feature-2" class="widget-container cf widget_ualr_single_link_feature">
+                                        <ul class='xoxo blogroll'>
+                                            <li>
+                                                <a href="http://iea.ualr.edu" target="_blank">						
+							                        <img src="~/img/IEA_LOGO_Plain_209slvr.gif" class="button"  alt="IEA" height="46" width="180"/><br/><br/><br/>	
+                                                </a>
+                                            </li>
+                                        </ul>                                        			
+						            </li>		
+						            <li id="linkcat-7" class="widget-container cf widget_ualr_single_link_feature">
+							            <ul class='xoxo blogroll'>
+								            <li><a href="http://www.argisusers.org" target="_blank"><img src="~/img/ar_gis_forum.jpg"  alt="Arkansas GIS Forum" height="46" />Arkansas GIS Users</a></li>
+								            <li><a href="http://www.gis.state.ar.us/GISB/gisb.html" target="_blank"><img src="~/img/ar_gis_board.gif"  alt="Arkansas GIS Board"  height="46"/>Arkansas GIS Board</a></li>
+								            <li><a href="http://www.gis.state.ar.us" target="_blank"><img src="~/img/ar_gis_office.gif"  alt="Arkansas Geographic Information Office"   height="46"/>Arkansas GIS Office</a></li>								            
+							            </ul>
+						            </li>
+					            </ul>
+				            </div><!-- #dynamic .widget-area -->
+			            </div><!-- #footer-widget-area -->
+
+	            </div><!-- #footer -->
+            </div><!-- #wrapper -->
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

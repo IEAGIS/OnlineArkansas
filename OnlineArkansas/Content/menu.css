@@ -1,0 +1,8 @@
+/* Generated via www.cssmenubuilder.com */
+
+.gismenu{margin:0; padding:0; width:200px; list-style:none;background:rgb(255,255,255);}
+.gismenu li{padding:0; margin:0 0 1px 0; height:40px; display:block; }
+.gismenu li a{text-align:left;height:40px; padding:0px 25px; font:16px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255); display:block; background:url('verMenuImages.png') 0px 0px no-repeat; text-decoration:none;}
+.gismenu li a:hover{background:url('verMenuImages.png') 0px -40px no-repeat; color:rgb(255,255,255);}
+.gismenu li a.active, .menu li a.active:hover{background:url('verMenuImages.png') 0px -80px no-repeat; color:rgb(255,255,255);}
+.gismenu li a span{line-height:40px;}
