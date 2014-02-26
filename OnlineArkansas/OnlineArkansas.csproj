@@ -398,6 +398,7 @@
     <Content Include="Views\Home\Resources.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Dev.pubxml" />
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\agsjs\dijit\images\Thumbs.db" />
     <Content Include="Views\Home\Location.cshtml" />
