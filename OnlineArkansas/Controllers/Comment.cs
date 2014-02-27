@@ -5,7 +5,6 @@ using System.Text;
 
 namespace OnlineArkansas.Controllers
 {
-
     public class Comment
     {
         public string CourseName { get; set; }
