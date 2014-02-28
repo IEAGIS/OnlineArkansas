@@ -296,6 +296,7 @@
     <Content Include="img\vert-rule.png" />
     <Content Include="img\white-logo2.png" />
     <Content Include="Content\maps\Median_Age_Black_Total_2000_2010.jpg" />
+    <Content Include="README.jQuery.vsdoc.txt" />
     <Content Include="Scripts\agsjs\dijit\css\TOC.css" />
     <Content Include="Scripts\agsjs\dijit\GlowingRipple.js" />
     <Content Include="Scripts\agsjs\dijit\images\googlehybrid.png" />
