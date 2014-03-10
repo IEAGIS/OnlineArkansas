@@ -92,18 +92,21 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    CourseName: $('#courseName').text(),
-                    FirstName: $('#firstname').val(),
-                    LastName: $('#lastname').val(),
-                    Organization: $('#organization').val(),
-                    Address: $('#address').val(),
-                    Address2: $('#address2').val(),
-                    City: $('#city').val(),
-                    State: $('#state').val(),
-                    ZipCode: $('#zipcode').val(),
-                    Telephone: $('#telephone').val(),
-                    Fax: $('#fax').val(),
-                    Email: $('#email').val()
+                    courseName: $('#courseName').text(),
+                    firstName: $('#firstname').val(),
+                    lastName: $('#lastname').val(),
+                    organization: $('#organization').val(),
+                    address: $('#address').val(),
+                    address2: $('#address2').val(),
+                    city: $('#city').val(),
+                    state: $('#state').val(),
+                    zipCode: $('#zipcode').val(),
+                    telephone: $('#telephone').val(),
+                    fax: $('#fax').val(),
+                    email: $('#email').val(),
+                    courseStartDate: '04/01/2014',
+                    courseEndDate: '04/02/2014',
+                    courseFee: 700
                 }),
                 success: function (result) {
                     $("#fundamentalsRegistration").dialog("close");

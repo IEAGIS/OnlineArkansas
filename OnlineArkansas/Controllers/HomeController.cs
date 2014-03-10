@@ -33,17 +33,17 @@ namespace OnlineArkansas.Controllers
         public ActionResult CommentForm(Comment comment)
         {
             Comment ajaxComment = new Comment();
-            ajaxComment.FirstName = comment.FirstName;
-            ajaxComment.LastName = comment.LastName;
-            ajaxComment.Organization = comment.Organization;
-            ajaxComment.Address = comment.Address;
-            ajaxComment.Address2 = comment.Address2;
-            ajaxComment.City = comment.City;
-            ajaxComment.State = comment.State;
-            ajaxComment.ZipCode = comment.ZipCode;
-            ajaxComment.Telephone = comment.Telephone;
-            ajaxComment.Fax = comment.Fax;
-            ajaxComment.Email = comment.Email;
+            ajaxComment.firstName = comment.firstName;
+            ajaxComment.lastName = comment.lastName;
+            ajaxComment.organization = comment.organization;
+            ajaxComment.address = comment.address;
+            ajaxComment.address2 = comment.address2;
+            ajaxComment.city = comment.city;
+            ajaxComment.state = comment.state;
+            ajaxComment.zipCode = comment.zipCode;
+            ajaxComment.telephone = comment.telephone;
+            ajaxComment.fax = comment.fax;
+            ajaxComment.email = comment.email;
 
             //mRep.Add(ajaxComment);
             //uow.Save();
@@ -58,39 +58,66 @@ namespace OnlineArkansas.Controllers
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Timeout = 20000,
-                Credentials = new System.Net.NetworkCredential()
+                Credentials = new System.Net.NetworkCredential("aecamrg@gmail.com", "123aecamrg")
             };
 
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
 
             msg.IsBodyHtml = true;
-            msg.To.Add("ilfarmahan@ualr.edu");
-            msg.CC.Add("jojoseph@ualr.edu");
+            //msg.To.Add("ilfarmahan@ualr.edu");
+            msg.To.Add("jojoseph@ualr.edu");
             msg.Bcc.Add("mxlnu1@ualr.edu");
-            msg.CC.Add(comment.Email);
+            msg.CC.Add(comment.email);
 
-            msg.From = new System.Net.Mail.MailAddress(comment.Email);
+            msg.From = new System.Net.Mail.MailAddress(comment.email);
 
-            msg.Subject = comment.CourseName + " Form from: " + comment.FirstName + " " + comment.LastName;
+            msg.Subject = comment.courseName + " Form from: " + comment.firstName + " " + comment.lastName;
 
             msgText = "<table cellpadding='5px'>";
-            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + comment.FirstName + " " + comment.LastName + "</td></tr>";
-            msgText = msgText + "<tr><td>Organization:</td><td>" + comment.Organization + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 1:</td><td>" + comment.Address + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 2:</td><td>" + comment.Address2 + "</td></tr>";
-            msgText = msgText + "<tr><td>City:</td><td>" + comment.City + "</td></tr>";
-            msgText = msgText + "<tr><td>State:</td><td>" + comment.State + "</td></tr>";
-            msgText = msgText + "<tr><td>Zip Code:</td><td>" + comment.ZipCode + "</td></tr>";
-            msgText = msgText + "<tr><td>Telephone:</td><td>" + comment.Telephone + "</td></tr>";
-            msgText = msgText + "<tr><td>Fax:</td><td>" + comment.Fax + "</td></tr>";
-            msgText = msgText + "<tr><td>Email:</td><td>" + comment.Email + "</td></tr>";
+            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + comment.firstName + " " + comment.lastName + "</td></tr>";
+            msgText = msgText + "<tr><td>Organization:</td><td>" + comment.organization + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 1:</td><td>" + comment.address + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 2:</td><td>" + comment.address2 + "</td></tr>";
+            msgText = msgText + "<tr><td>City:</td><td>" + comment.city + "</td></tr>";
+            msgText = msgText + "<tr><td>State:</td><td>" + comment.state + "</td></tr>";
+            msgText = msgText + "<tr><td>Zip Code:</td><td>" + comment.zipCode + "</td></tr>";
+            msgText = msgText + "<tr><td>Telephone:</td><td>" + comment.telephone + "</td></tr>";
+            msgText = msgText + "<tr><td>Fax:</td><td>" + comment.fax + "</td></tr>";
+            msgText = msgText + "<tr><td>Email:</td><td>" + comment.email + "</td></tr>";
             msgText = msgText + "<tr><td colspan='2'>Invoice and location instructions will be mailed or faxed to you prior to the class.</td></tr>";  
             msgText = msgText + "</table>";
             msg.Body = msgText;
            
             smtp.Send(msg);
 
-            //Response.Redirect("../Home/Training.cshtml");                                   
+            using (var db = new RegistrationContext())
+            {
+                // Create and save a new Blog 
+                Console.Write("Enter a name for a new Blog: ");
+                var name = Console.ReadLine();
+
+                var registration = new Comment
+                {
+                    firstName = comment.firstName,
+                    lastName = comment.lastName,
+                    organization = comment.organization,
+                    address = comment.address,
+                    address2 = comment.address2,
+                    city = comment.city,
+                    state = comment.state,
+                    zipCode = comment.zipCode,
+                    telephone = comment.telephone,
+                    fax = comment.fax,
+                    email = comment.email,
+                    courseName = comment.courseName,
+                    courseStartDate = comment.courseStartDate,
+                    courseEndDate = comment.courseEndDate,
+                    courseFee = comment.courseFee
+                };
+
+                db.Comment.Add(registration);
+                db.SaveChanges();
+            }                             
 
             return Json(ajaxComment);
         }
