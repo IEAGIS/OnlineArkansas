@@ -189,12 +189,14 @@ namespace OnlineArkansas
         /// <param name="primaryKey">Initial value of the primaryKey property.</param>
         /// <param name="value1">Initial value of the value1 property.</param>
         /// <param name="value2">Initial value of the value2 property.</param>
-        public static Configuration CreateConfiguration(global::System.Int64 primaryKey, global::System.String value1, global::System.String value2)
+        /// <param name="keyCode">Initial value of the keyCode property.</param>
+        public static Configuration CreateConfiguration(global::System.Int64 primaryKey, global::System.String value1, global::System.String value2, global::System.String keyCode)
         {
             Configuration configuration = new Configuration();
             configuration.primaryKey = primaryKey;
             configuration.value1 = value1;
             configuration.value2 = value2;
+            configuration.keyCode = keyCode;
             return configuration;
         }
 
@@ -276,6 +278,54 @@ namespace OnlineArkansas
         private global::System.String _value2;
         partial void Onvalue2Changing(global::System.String value);
         partial void Onvalue2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String keyCode
+        {
+            get
+            {
+                return _keyCode;
+            }
+            set
+            {
+                OnkeyCodeChanging(value);
+                ReportPropertyChanging("keyCode");
+                _keyCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("keyCode");
+                OnkeyCodeChanged();
+            }
+        }
+        private global::System.String _keyCode;
+        partial void OnkeyCodeChanging(global::System.String value);
+        partial void OnkeyCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String codeDescription
+        {
+            get
+            {
+                return _codeDescription;
+            }
+            set
+            {
+                OncodeDescriptionChanging(value);
+                ReportPropertyChanging("codeDescription");
+                _codeDescription = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("codeDescription");
+                OncodeDescriptionChanged();
+            }
+        }
+        private global::System.String _codeDescription;
+        partial void OncodeDescriptionChanging(global::System.String value);
+        partial void OncodeDescriptionChanged();
 
         #endregion
 

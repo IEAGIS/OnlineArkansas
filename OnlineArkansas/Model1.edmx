@@ -16,8 +16,10 @@
             <PropertyRef Name="primaryKey" />
           </Key>
           <Property Name="primaryKey" Type="bigint" Nullable="false" />
-          <Property Name="value1" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="value2" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="value1" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="value2" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="keyCode" Type="nchar" Nullable="false" MaxLength="4" />
+          <Property Name="codeDescription" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -119,6 +121,8 @@
           <Property Type="Int64" Name="primaryKey" Nullable="false" />
           <Property Type="String" Name="value1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="value2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="keyCode" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="codeDescription" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -173,6 +177,8 @@
           <EntitySetMapping Name="Configurations">
             <EntityTypeMapping TypeName="OnlineArkansasModel.Configuration">
               <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="codeDescription" ColumnName="codeDescription" />
+                <ScalarProperty Name="keyCode" ColumnName="keyCode" />
                 <ScalarProperty Name="value2" ColumnName="value2" />
                 <ScalarProperty Name="value1" ColumnName="value1" />
                 <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
