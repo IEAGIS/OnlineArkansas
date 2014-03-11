@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineArkansas.Controllers
 {
     [Table("Registration")]
-    public class Comment
+    public class Registration
     {
         [Key]
         public Int64 registrationId { get; set; }
@@ -32,6 +32,6 @@ namespace OnlineArkansas.Controllers
 
     public class RegistrationContext : DbContext
     {
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Registration> Comment { get; set; }
     }          
 }

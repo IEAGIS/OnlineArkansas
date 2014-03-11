@@ -30,9 +30,9 @@ namespace OnlineArkansas.Controllers
         }
 
         [HttpPost]
-        public ActionResult CommentForm(Comment comment)
+        public ActionResult CommentForm(Registration comment)
         {
-            Comment ajaxComment = new Comment();
+            Registration ajaxComment = new Registration();
             ajaxComment.firstName = comment.firstName;
             ajaxComment.lastName = comment.lastName;
             ajaxComment.organization = comment.organization;
@@ -96,7 +96,7 @@ namespace OnlineArkansas.Controllers
                 Console.Write("Enter a name for a new Blog: ");
                 var name = Console.ReadLine();
 
-                var registration = new Comment
+                var registration = new Registration
                 {
                     firstName = comment.firstName,
                     lastName = comment.lastName,
