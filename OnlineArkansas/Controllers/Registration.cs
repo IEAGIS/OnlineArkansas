@@ -30,7 +30,7 @@ namespace OnlineArkansas.Controllers
         public double courseFee { get; set; }
     }
 
-    public class RegistrationContext : DbContext
+    public class OnlineArkansasContext : DbContext
     {
         public DbSet<Registration> Registration { get; set; }
     }          
