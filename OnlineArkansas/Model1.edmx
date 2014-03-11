@@ -6,10 +6,19 @@
     <edmx:StorageModels>
     <Schema Namespace="OnlineArkansasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="OnlineArkansasModelStoreContainer">
+          <EntitySet Name="Configuration" EntityType="OnlineArkansasModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Course" EntityType="OnlineArkansasModel.Store.Course" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Registration" EntityType="OnlineArkansasModel.Store.Registration" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="State" EntityType="OnlineArkansasModel.Store.State" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="bigint" Nullable="false" />
+          <Property Name="value1" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="value2" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="courseID" />
@@ -60,6 +69,7 @@
           <EntitySet Name="Courses" EntityType="OnlineArkansasModel.Course" />
           <EntitySet Name="Registrations" EntityType="OnlineArkansasModel.Registration" />
           <EntitySet Name="States" EntityType="OnlineArkansasModel.State" />
+          <EntitySet Name="Configurations" EntityType="OnlineArkansasModel.Configuration" />
         </EntityContainer>
         <EntityType Name="Course">
           <Key>
@@ -101,6 +111,14 @@
           <Property Name="stateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="stateCode" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
           <Property Name="stateName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Type="Int64" Name="primaryKey" Nullable="false" />
+          <Property Type="String" Name="value1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="value2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -152,6 +170,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Configurations">
+            <EntityTypeMapping TypeName="OnlineArkansasModel.Configuration">
+              <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="value2" ColumnName="value2" />
+                <ScalarProperty Name="value1" ColumnName="value1" />
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -176,6 +203,7 @@
         <EntityTypeShape EntityType="OnlineArkansasModel.Course" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineArkansasModel.Registration" Width="1.5" PointX="2.75" PointY="0.75" Height="4.1156022135416652" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineArkansasModel.State" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineArkansasModel.Configuration" Width="1.5" PointX="7.125" PointY="0.75" Height="1.5956835937499996" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -112,6 +112,22 @@ namespace OnlineArkansas
             }
         }
         private ObjectSet<State> _States;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Configuration> Configurations
+        {
+            get
+            {
+                if ((_Configurations == null))
+                {
+                    _Configurations = base.CreateObjectSet<Configuration>("Configurations");
+                }
+                return _Configurations;
+            }
+        }
+        private ObjectSet<Configuration> _Configurations;
 
         #endregion
 
@@ -140,6 +156,14 @@ namespace OnlineArkansas
         {
             base.AddObject("States", state);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Configurations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToConfigurations(Configuration configuration)
+        {
+            base.AddObject("Configurations", configuration);
+        }
 
         #endregion
 
@@ -148,6 +172,115 @@ namespace OnlineArkansas
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="OnlineArkansasModel", Name="Configuration")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Configuration : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Configuration object.
+        /// </summary>
+        /// <param name="primaryKey">Initial value of the primaryKey property.</param>
+        /// <param name="value1">Initial value of the value1 property.</param>
+        /// <param name="value2">Initial value of the value2 property.</param>
+        public static Configuration CreateConfiguration(global::System.Int64 primaryKey, global::System.String value1, global::System.String value2)
+        {
+            Configuration configuration = new Configuration();
+            configuration.primaryKey = primaryKey;
+            configuration.value1 = value1;
+            configuration.value2 = value2;
+            return configuration;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 primaryKey
+        {
+            get
+            {
+                return _primaryKey;
+            }
+            set
+            {
+                if (_primaryKey != value)
+                {
+                    OnprimaryKeyChanging(value);
+                    ReportPropertyChanging("primaryKey");
+                    _primaryKey = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("primaryKey");
+                    OnprimaryKeyChanged();
+                }
+            }
+        }
+        private global::System.Int64 _primaryKey;
+        partial void OnprimaryKeyChanging(global::System.Int64 value);
+        partial void OnprimaryKeyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String value1
+        {
+            get
+            {
+                return _value1;
+            }
+            set
+            {
+                Onvalue1Changing(value);
+                ReportPropertyChanging("value1");
+                _value1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("value1");
+                Onvalue1Changed();
+            }
+        }
+        private global::System.String _value1;
+        partial void Onvalue1Changing(global::System.String value);
+        partial void Onvalue1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String value2
+        {
+            get
+            {
+                return _value2;
+            }
+            set
+            {
+                Onvalue2Changing(value);
+                ReportPropertyChanging("value2");
+                _value2 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("value2");
+                Onvalue2Changed();
+            }
+        }
+        private global::System.String _value2;
+        partial void Onvalue2Changing(global::System.String value);
+        partial void Onvalue2Changed();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
