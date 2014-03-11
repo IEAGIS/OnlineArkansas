@@ -32,6 +32,6 @@ namespace OnlineArkansas.Controllers
 
     public class RegistrationContext : DbContext
     {
-        public DbSet<Registration> Comment { get; set; }
+        public DbSet<Registration> Registration { get; set; }
     }          
 }

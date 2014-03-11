@@ -92,9 +92,7 @@ namespace OnlineArkansas.Controllers
 
             using (var db = new RegistrationContext())
             {
-                // Create and save a new Blog 
-                Console.Write("Enter a name for a new Blog: ");
-                var name = Console.ReadLine();
+                // Create and save a new Registration                
 
                 var registration = new Registration
                 {
@@ -115,7 +113,7 @@ namespace OnlineArkansas.Controllers
                     courseFee = comment.courseFee
                 };
 
-                db.Comment.Add(registration);
+                db.Registration.Add(registration);
                 db.SaveChanges();
             }                             
 
