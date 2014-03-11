@@ -42,6 +42,7 @@
           <Property Name="courseStartDate" Type="datetime" Nullable="false" />
           <Property Name="courseEndDate" Type="datetime" Nullable="false" />
           <Property Name="courseFee" Type="money" Nullable="false" />
+          <Property Name="registrationTime" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -173,7 +174,7 @@
     <Diagrams>
       <Diagram Name="Model1">
         <EntityTypeShape EntityType="OnlineArkansasModel.Course" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineArkansasModel.Registration" Width="1.5" PointX="2.75" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineArkansasModel.Registration" Width="1.5" PointX="2.75" PointY="0.75" Height="4.1156022135416652" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineArkansasModel.State" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
       </Diagram>
     </Diagrams>
