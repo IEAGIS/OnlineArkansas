@@ -30,7 +30,7 @@ namespace OnlineArkansas.Controllers
         }
 
         [HttpPost]
-        public ActionResult CommentForm(Registration comment)
+        public ActionResult RegistrationForm(Registration comment)
         {
             Registration ajaxComment = new Registration();
             ajaxComment.firstName = comment.firstName;

@@ -87,7 +87,7 @@
         submitHandler: function (form) {
 
             $.ajax({
-                url: '../Home/CommentForm',
+                url: '../Home/RegistrationForm',
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
