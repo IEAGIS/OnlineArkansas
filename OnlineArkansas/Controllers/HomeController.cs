@@ -45,11 +45,10 @@ namespace OnlineArkansas.Controllers
             ajaxComment.fax = comment.fax;
             ajaxComment.emailAddress = comment.emailAddress;
 
+            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+
             var emailId = " ";
             var password = " ";
-            var emailIdTo = "";
-            var emailIdCc = "";
-            var emailIdBcc = "";
 
             using (var dbConnection = new OnlineArkansasContext())
             {
@@ -64,19 +63,19 @@ namespace OnlineArkansas.Controllers
                 var confEmailAddrTo = dbConnection.Configurations.Where(row => row.keyCode == "EMTO");
                 foreach (Configuration configuration in confEmailAddrTo)
                 {
-                    emailIdTo = configuration.value1;
+                    msg.To.Add(configuration.value1);
                     
                 }
                 var confEmailAddrCc = dbConnection.Configurations.Where(row => row.keyCode == "EMCC");
                 foreach (Configuration configuration in confEmailAddrCc)
                 {
-                    emailIdCc = configuration.value1;
+                    msg.CC.Add(configuration.value1);
 
                 }
                 var confEmailAddrBcc = dbConnection.Configurations.Where(row => row.keyCode == "EMBC");
                 foreach (Configuration configuration in confEmailAddrBcc)
                 {
-                    emailIdBcc = configuration.value1;
+                    msg.Bcc.Add(configuration.value1);
 
                 }
             }
@@ -94,12 +93,9 @@ namespace OnlineArkansas.Controllers
                 Credentials = new System.Net.NetworkCredential(emailId, password)
             };
 
-            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+            
 
             msg.IsBodyHtml = true;
-            //msg.To.Add(emailIdTo);
-            msg.To.Add(emailIdCc);
-            msg.Bcc.Add(emailIdBcc);
             msg.CC.Add(comment.emailAddress);
 
             msg.From = new System.Net.Mail.MailAddress(comment.emailAddress);
