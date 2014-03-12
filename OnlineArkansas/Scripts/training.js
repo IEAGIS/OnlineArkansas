@@ -5,10 +5,17 @@
         active: false
     });
 
+    var courseStartDate;
+    var courseEndDate;
+    var courseFee;
+
     $(".fundamentals").click(function () {
         var courseName = $(this).attr("course");
         var courseDate = $(this).attr("date");
         var coursePrice = $(this).attr("price");
+        courseStartDate = $(this).attr("startDate");
+        courseEndDate = $(this).attr("endDate");
+        courseFee = $(this).attr("price");
 
         reset();
 
@@ -16,6 +23,7 @@
         $("#courseName").text(courseName);
         $("#courseDate").text(courseDate);
         $("#coursePrice").text(coursePrice);
+
     });
 
     $('#telephone').mask('(000) 000-0000');
@@ -104,9 +112,9 @@
                     phone: $('#telephone').val(),
                     fax: $('#fax').val(),
                     emailAddress: $('#email').val(),
-                    courseStartDate: '04/01/2014',
-                    courseEndDate: '04/02/2014',
-                    courseFee: 700
+                    courseStartDate: courseStartDate,
+                    courseEndDate: courseEndDate,
+                    courseFee: courseFee
                 }),
                 success: function (result) {
                     $("#fundamentalsRegistration").dialog("close");
