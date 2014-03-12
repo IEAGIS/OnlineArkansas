@@ -45,8 +45,19 @@ namespace OnlineArkansas.Controllers
             ajaxComment.fax = comment.fax;
             ajaxComment.emailAddress = comment.emailAddress;
 
-            //mRep.Add(ajaxComment);
-            //uow.Save();
+            var emailId = " ";
+            var password = " ";
+
+            using (var dbConnection = new OnlineArkansasContext())
+            {
+                var configurations = dbConnection.Configurations.Where(row => row.keyCode == "EMID");
+                foreach (Configuration configuration in configurations)
+                {
+                    emailId = configuration.value1;
+                    password = configuration.value2;
+                }
+               
+            }
             
             var msgText = "";
 
@@ -58,7 +69,7 @@ namespace OnlineArkansas.Controllers
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Timeout = 20000,
-                Credentials = new System.Net.NetworkCredential("aecamrg@gmail.com", "123aecamrg")
+                Credentials = new System.Net.NetworkCredential(emailId, password)
             };
 
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
