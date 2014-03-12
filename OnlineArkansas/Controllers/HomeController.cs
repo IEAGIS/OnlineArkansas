@@ -30,20 +30,20 @@ namespace OnlineArkansas.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegistrationForm(Registration comment)
+        public ActionResult RegistrationForm(Registration registration)
         {
             Registration ajaxComment = new Registration();
-            ajaxComment.firstName = comment.firstName;
-            ajaxComment.lastName = comment.lastName;
-            ajaxComment.organization = comment.organization;
-            ajaxComment.address1 = comment.address1;
-            ajaxComment.address2 = comment.address2;
-            ajaxComment.city = comment.city;
-            ajaxComment.state = comment.state;
-            ajaxComment.zipCode = comment.zipCode;
-            ajaxComment.phone = comment.phone;
-            ajaxComment.fax = comment.fax;
-            ajaxComment.emailAddress = comment.emailAddress;
+            ajaxComment.firstName = registration.firstName;
+            ajaxComment.lastName = registration.lastName;
+            ajaxComment.organization = registration.organization;
+            ajaxComment.address1 = registration.address1;
+            ajaxComment.address2 = registration.address2;
+            ajaxComment.city = registration.city;
+            ajaxComment.state = registration.state;
+            ajaxComment.zipCode = registration.zipCode;
+            ajaxComment.phone = registration.phone;
+            ajaxComment.fax = registration.fax;
+            ajaxComment.emailAddress = registration.emailAddress;
 
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
 
@@ -53,7 +53,6 @@ namespace OnlineArkansas.Controllers
             using (var dbConnection = new OnlineArkansasContext())
             {
                 var configurations = dbConnection.Configurations.Where(row => row.keyCode == "EMID");
-
                 foreach (Configuration configuration in configurations)
                 {
                     emailId = configuration.value1;
@@ -78,6 +77,29 @@ namespace OnlineArkansas.Controllers
                     msg.Bcc.Add(configuration.value1);
 
                 }
+
+                // Create and save a new Registration                
+                var registrationRecord = new Registration
+                {
+                    firstName = registration.firstName,
+                    lastName = registration.lastName,
+                    organization = registration.organization,
+                    address1 = registration.address1,
+                    address2 = registration.address2,
+                    city = registration.city,
+                    state = registration.state,
+                    zipCode = registration.zipCode,
+                    phone = registration.phone,
+                    fax = registration.fax,
+                    emailAddress = registration.emailAddress,
+                    courseName = registration.courseName,
+                    courseStartDate = registration.courseStartDate,
+                    courseEndDate = registration.courseEndDate,
+                    courseFee = registration.courseFee
+                };
+
+                dbConnection.Registrations.AddObject(registrationRecord);
+                dbConnection.SaveChanges();
             }
             
             var msgText = "";
@@ -96,55 +118,28 @@ namespace OnlineArkansas.Controllers
             
 
             msg.IsBodyHtml = true;
-            msg.CC.Add(comment.emailAddress);
+            msg.CC.Add(registration.emailAddress);
 
-            msg.From = new System.Net.Mail.MailAddress(comment.emailAddress);
+            msg.From = new System.Net.Mail.MailAddress(registration.emailAddress);
 
-            msg.Subject = comment.courseName + " Form from: " + comment.firstName + " " + comment.lastName;
+            msg.Subject = registration.courseName + " Form from: " + registration.firstName + " " + registration.lastName;
 
             msgText = "<table cellpadding='5px'>";
-            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + comment.firstName + " " + comment.lastName + "</td></tr>";
-            msgText = msgText + "<tr><td>Organization:</td><td>" + comment.organization + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 1:</td><td>" + comment.address1 + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 2:</td><td>" + comment.address2 + "</td></tr>";
-            msgText = msgText + "<tr><td>City:</td><td>" + comment.city + "</td></tr>";
-            msgText = msgText + "<tr><td>State:</td><td>" + comment.state + "</td></tr>";
-            msgText = msgText + "<tr><td>Zip Code:</td><td>" + comment.zipCode + "</td></tr>";
-            msgText = msgText + "<tr><td>Telephone:</td><td>" + comment.phone + "</td></tr>";
-            msgText = msgText + "<tr><td>Fax:</td><td>" + comment.fax + "</td></tr>";
-            msgText = msgText + "<tr><td>Email:</td><td>" + comment.emailAddress + "</td></tr>";
+            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + registration.firstName + " " + registration.lastName + "</td></tr>";
+            msgText = msgText + "<tr><td>Organization:</td><td>" + registration.organization + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 1:</td><td>" + registration.address1 + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 2:</td><td>" + registration.address2 + "</td></tr>";
+            msgText = msgText + "<tr><td>City:</td><td>" + registration.city + "</td></tr>";
+            msgText = msgText + "<tr><td>State:</td><td>" + registration.state + "</td></tr>";
+            msgText = msgText + "<tr><td>Zip Code:</td><td>" + registration.zipCode + "</td></tr>";
+            msgText = msgText + "<tr><td>Telephone:</td><td>" + registration.phone + "</td></tr>";
+            msgText = msgText + "<tr><td>Fax:</td><td>" + registration.fax + "</td></tr>";
+            msgText = msgText + "<tr><td>Email:</td><td>" + registration.emailAddress + "</td></tr>";
             msgText = msgText + "<tr><td colspan='2'>Invoice and location instructions will be mailed or faxed to you prior to the class.</td></tr>";  
             msgText = msgText + "</table>";
             msg.Body = msgText;
            
-            smtp.Send(msg);
-
-            using (var db = new OnlineArkansasContext())
-            {
-                // Create and save a new Registration                
-
-                var registration = new Registration
-                {                    
-                    firstName = comment.firstName,
-                    lastName = comment.lastName,
-                    organization = comment.organization,
-                    address1 = comment.address1,
-                    address2 = comment.address2,
-                    city = comment.city,
-                    state = comment.state,
-                    zipCode = comment.zipCode,
-                    phone = comment.phone,
-                    fax = comment.fax,
-                    emailAddress = comment.emailAddress,
-                    courseName = comment.courseName,
-                    courseStartDate = comment.courseStartDate,
-                    courseEndDate = comment.courseEndDate,
-                    courseFee = comment.courseFee
-                };
-
-                db.Registrations.AddObject(registration);
-                db.SaveChanges();
-            }                             
+            smtp.Send(msg);                         
 
             return Json(ajaxComment);
         }

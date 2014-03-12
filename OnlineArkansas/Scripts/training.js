@@ -118,7 +118,7 @@
                 }),
                 success: function (result) {
                     $("#fundamentalsRegistration").dialog("close");
-                    alert("Congratulations! " + result.FirstName + ". You have successfully registered. Invoice and location instructions will be mailed or faxed to you prior to the class.");
+                    alert("Congratulations! " + result.firstName + ". You have successfully registered. Invoice and location instructions will be mailed or faxed to you prior to the class.");
                 },
                 error: function (result) {
                     alert("Oops! Your registration has failed. Please try again.");
