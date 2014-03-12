@@ -47,16 +47,38 @@ namespace OnlineArkansas.Controllers
 
             var emailId = " ";
             var password = " ";
+            var emailIdTo = "";
+            var emailIdCc = "";
+            var emailIdBcc = "";
 
             using (var dbConnection = new OnlineArkansasContext())
             {
                 var configurations = dbConnection.Configurations.Where(row => row.keyCode == "EMID");
+
                 foreach (Configuration configuration in configurations)
                 {
                     emailId = configuration.value1;
                     password = configuration.value2;
                 }
-               
+
+                var confEmailAddrTo = dbConnection.Configurations.Where(row => row.keyCode == "EMTO");
+                foreach (Configuration configuration in confEmailAddrTo)
+                {
+                    emailIdTo = configuration.value1;
+                    
+                }
+                var confEmailAddrCc = dbConnection.Configurations.Where(row => row.keyCode == "EMCC");
+                foreach (Configuration configuration in confEmailAddrCc)
+                {
+                    emailIdCc = configuration.value1;
+
+                }
+                var confEmailAddrBcc = dbConnection.Configurations.Where(row => row.keyCode == "EMBC");
+                foreach (Configuration configuration in confEmailAddrBcc)
+                {
+                    emailIdBcc = configuration.value1;
+
+                }
             }
             
             var msgText = "";
@@ -75,9 +97,9 @@ namespace OnlineArkansas.Controllers
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
 
             msg.IsBodyHtml = true;
-            //msg.To.Add("ilfarmahan@ualr.edu");
-            msg.To.Add("jojoseph@ualr.edu");
-            msg.Bcc.Add("mxlnu1@ualr.edu");
+            //msg.To.Add(emailIdTo);
+            msg.To.Add(emailIdCc);
+            msg.Bcc.Add(emailIdBcc);
             msg.CC.Add(comment.emailAddress);
 
             msg.From = new System.Net.Mail.MailAddress(comment.emailAddress);

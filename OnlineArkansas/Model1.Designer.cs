@@ -188,14 +188,12 @@ namespace OnlineArkansas
         /// </summary>
         /// <param name="primaryKey">Initial value of the primaryKey property.</param>
         /// <param name="value1">Initial value of the value1 property.</param>
-        /// <param name="value2">Initial value of the value2 property.</param>
         /// <param name="keyCode">Initial value of the keyCode property.</param>
-        public static Configuration CreateConfiguration(global::System.Int64 primaryKey, global::System.String value1, global::System.String value2, global::System.String keyCode)
+        public static Configuration CreateConfiguration(global::System.Int64 primaryKey, global::System.String value1, global::System.String keyCode)
         {
             Configuration configuration = new Configuration();
             configuration.primaryKey = primaryKey;
             configuration.value1 = value1;
-            configuration.value2 = value2;
             configuration.keyCode = keyCode;
             return configuration;
         }
@@ -258,7 +256,7 @@ namespace OnlineArkansas
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String value2
         {
@@ -270,7 +268,7 @@ namespace OnlineArkansas
             {
                 Onvalue2Changing(value);
                 ReportPropertyChanging("value2");
-                _value2 = StructuralObject.SetValidValue(value, false);
+                _value2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("value2");
                 Onvalue2Changed();
             }

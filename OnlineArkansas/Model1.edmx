@@ -15,11 +15,11 @@
           <Key>
             <PropertyRef Name="primaryKey" />
           </Key>
-          <Property Name="primaryKey" Type="bigint" Nullable="false" />
-          <Property Name="value1" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="value2" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="primaryKey" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="keyCode" Type="nchar" Nullable="false" MaxLength="4" />
           <Property Name="codeDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="value1" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="value2" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -120,7 +120,7 @@
           </Key>
           <Property Type="Int64" Name="primaryKey" Nullable="false" />
           <Property Type="String" Name="value1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="value2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="value2" Nullable="true" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="keyCode" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="codeDescription" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
