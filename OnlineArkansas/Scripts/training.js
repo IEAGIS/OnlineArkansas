@@ -93,7 +93,7 @@
             }
         },
         submitHandler: function (form) {
-
+            $(".ajax-loader").html("<img src='/img/loader.gif'>");
             $.ajax({
                 url: '../Home/RegistrationForm',
                 type: "POST",
@@ -117,6 +117,7 @@
                     courseFee: courseFee
                 }),
                 success: function (result) {
+                    $(".ajax-loader").html('');
                     $("#fundamentalsRegistration").dialog("close");
                     alert("Congratulations! " + result.firstName + ". You have successfully registered. Invoice and location instructions will be mailed or faxed to you prior to the class.");
                 },

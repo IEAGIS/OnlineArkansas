@@ -290,6 +290,7 @@
     <Content Include="img\jquery-lightbox-theme.png" />
     <Content Include="img\LabMap2.jpg" />
     <Content Include="img\libhome.gif" />
+    <Content Include="img\loader.gif" />
     <Content Include="img\loading.gif" />
     <Content Include="img\logohome.gif" />
     <Content Include="img\MS-Lo.gif" />

@@ -2749,6 +2749,16 @@ h3.widget-title {
 	display: inline;
 }
 
+/* Aligning loader image */
+.ajax-loader {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    margin-left: -32px; 
+    margin-top: -32px;  
+    display: block;     
+}
+
 /* =Footer
 -------------------------------------------------------------- */
 
