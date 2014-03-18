@@ -30,20 +30,20 @@ namespace OnlineArkansas.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegistrationForm(Registration registration)
+        public ActionResult RegistrationForm(RegistrationEntity registrationEntity)
         {
-            Registration ajaxComment = new Registration();
-            ajaxComment.firstName = registration.firstName;
-            ajaxComment.lastName = registration.lastName;
-            ajaxComment.organization = registration.organization;
-            ajaxComment.address1 = registration.address1;
-            ajaxComment.address2 = registration.address2;
-            ajaxComment.city = registration.city;
-            ajaxComment.state = registration.state;
-            ajaxComment.zipCode = registration.zipCode;
-            ajaxComment.phone = registration.phone;
-            ajaxComment.fax = registration.fax;
-            ajaxComment.emailAddress = registration.emailAddress;
+            RegistrationEntity ajaxComment = new RegistrationEntity();
+            ajaxComment.firstName = registrationEntity.firstName;
+            ajaxComment.lastName = registrationEntity.lastName;
+            ajaxComment.organization = registrationEntity.organization;
+            ajaxComment.address1 = registrationEntity.address1;
+            ajaxComment.address2 = registrationEntity.address2;
+            ajaxComment.city = registrationEntity.city;
+            ajaxComment.state = registrationEntity.state;
+            ajaxComment.zipCode = registrationEntity.zipCode;
+            ajaxComment.phone = registrationEntity.phone;
+            ajaxComment.fax = registrationEntity.fax;
+            ajaxComment.emailAddress = registrationEntity.emailAddress;
 
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
 
@@ -78,27 +78,32 @@ namespace OnlineArkansas.Controllers
 
                 }
 
-                // Create and save a new Registration                
-                var registrationRecord = new Registration
+                for (var i = 0; i <= registrationEntity.courseNames.Count - 1; i++)
                 {
-                    firstName = registration.firstName,
-                    lastName = registration.lastName,
-                    organization = registration.organization,
-                    address1 = registration.address1,
-                    address2 = registration.address2,
-                    city = registration.city,
-                    state = registration.state,
-                    zipCode = registration.zipCode,
-                    phone = registration.phone,
-                    fax = registration.fax,
-                    emailAddress = registration.emailAddress,
-                    courseName = registration.courseName,
-                    courseStartDate = registration.courseStartDate,
-                    courseEndDate = registration.courseEndDate,
-                    courseFee = registration.courseFee
-                };
+                    // Create and save a new Registration                
+                    var registrationRecord = new Registration
+                    {
+                        firstName = registrationEntity.firstName,
+                        lastName = registrationEntity.lastName,
+                        organization = registrationEntity.organization,
+                        address1 = registrationEntity.address1,
+                        address2 = registrationEntity.address2,
+                        city = registrationEntity.city,
+                        state = registrationEntity.state,
+                        zipCode = registrationEntity.zipCode,
+                        phone = registrationEntity.phone,
+                        fax = registrationEntity.fax,
+                        emailAddress = registrationEntity.emailAddress,
+                        courseName = registrationEntity.courseNames[i],
+                        courseStartDate = registrationEntity.courseStartDates[i],
+                        courseEndDate = registrationEntity.courseEndDates[i],
+                        courseFee = registrationEntity.courseFee[i]
+                    };
 
-                dbConnection.Registrations.AddObject(registrationRecord);
+                    dbConnection.Registrations.AddObject(registrationRecord);
+                }
+
+                
                 dbConnection.SaveChanges();
             }
             
@@ -118,23 +123,23 @@ namespace OnlineArkansas.Controllers
             
 
             msg.IsBodyHtml = true;
-            msg.CC.Add(registration.emailAddress);
+            msg.CC.Add(registrationEntity.emailAddress);
 
-            msg.From = new System.Net.Mail.MailAddress(registration.emailAddress);
+            msg.From = new System.Net.Mail.MailAddress(registrationEntity.emailAddress);
 
-            msg.Subject = registration.courseName + " Form from: " + registration.firstName + " " + registration.lastName;
+            msg.Subject = "Course Registration Form from: " + registrationEntity.firstName + " " + registrationEntity.lastName;
 
             msgText = "<table cellpadding='5px'>";
-            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + registration.firstName + " " + registration.lastName + "</td></tr>";
-            msgText = msgText + "<tr><td>Organization:</td><td>" + registration.organization + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 1:</td><td>" + registration.address1 + "</td></tr>";
-            msgText = msgText + "<tr><td>Address 2:</td><td>" + registration.address2 + "</td></tr>";
-            msgText = msgText + "<tr><td>City:</td><td>" + registration.city + "</td></tr>";
-            msgText = msgText + "<tr><td>State:</td><td>" + registration.state + "</td></tr>";
-            msgText = msgText + "<tr><td>Zip Code:</td><td>" + registration.zipCode + "</td></tr>";
-            msgText = msgText + "<tr><td>Telephone:</td><td>" + registration.phone + "</td></tr>";
-            msgText = msgText + "<tr><td>Fax:</td><td>" + registration.fax + "</td></tr>";
-            msgText = msgText + "<tr><td>Email:</td><td>" + registration.emailAddress + "</td></tr>";
+            msgText = msgText + "<tr><td width='30%'>Name:</td><td>" + registrationEntity.firstName + " " + registrationEntity.lastName + "</td></tr>";
+            msgText = msgText + "<tr><td>Organization:</td><td>" + registrationEntity.organization + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 1:</td><td>" + registrationEntity.address1 + "</td></tr>";
+            msgText = msgText + "<tr><td>Address 2:</td><td>" + registrationEntity.address2 + "</td></tr>";
+            msgText = msgText + "<tr><td>City:</td><td>" + registrationEntity.city + "</td></tr>";
+            msgText = msgText + "<tr><td>State:</td><td>" + registrationEntity.state + "</td></tr>";
+            msgText = msgText + "<tr><td>Zip Code:</td><td>" + registrationEntity.zipCode + "</td></tr>";
+            msgText = msgText + "<tr><td>Telephone:</td><td>" + registrationEntity.phone + "</td></tr>";
+            msgText = msgText + "<tr><td>Fax:</td><td>" + registrationEntity.fax + "</td></tr>";
+            msgText = msgText + "<tr><td>Email:</td><td>" + registrationEntity.emailAddress + "</td></tr>";
             msgText = msgText + "<tr><td colspan='2'>Invoice and location instructions will be mailed or faxed to you prior to the class.</td></tr>";  
             msgText = msgText + "</table>";
             msg.Body = msgText;

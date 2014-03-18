@@ -5,24 +5,25 @@
         active: false
     });
 
-    var courseStartDate;
-    var courseEndDate;
-    var courseFee;
+    var courseNamesList = [];
+    var courseStartDatesList = [];
+    var courseEndDatesList = [];
+    var courseFeeList = [];
 
     $(".fundamentals").click(function () {
-        var courseName = $(this).attr("course");
-        var courseDate = $(this).attr("date");
-        var coursePrice = $(this).attr("price");
-        courseStartDate = $(this).attr("startDate");
-        courseEndDate = $(this).attr("endDate");
-        courseFee = $(this).attr("price");
+        //var courseName = $(this).attr("course");
+        //var courseDate = $(this).attr("date");
+        //var coursePrice = $(this).attr("price");
+        //courseStartDate = $(this).attr("startDate");
+        //courseEndDate = $(this).attr("endDate");
+        //courseFee = $(this).attr("price");
 
         reset();
 
         $("#fundamentalsRegistration").dialog("open");
-        $("#courseName").text(courseName);
-        $("#courseDate").text(courseDate);
-        $("#coursePrice").text(coursePrice);
+        //$("#courseName").text(courseName);
+        //$("#courseDate").text(courseDate);
+        //$("#coursePrice").text(coursePrice);
 
     });
 
@@ -94,13 +95,30 @@
         },
         submitHandler: function (form) {
             $(".ajax-loader").html("<img src='../img/loader.gif'>");
+            if ($('#course1').is(':checked') == true) {
+                courseNamesList.push($('#courseName1').text());
+                courseStartDatesList.push($('#course1').attr("courseStartDate1"));
+                courseEndDatesList.push($('#course1').attr("courseEndDate1"));
+                courseFeeList.push($('#coursePrice1').text());
+
+                //testVar = $('input[name="courses[]"]:checked')[0].attributes
+            }
+            if ($('#course2').is(':checked') == true) {
+                courseNamesList.push($('#courseName2').text());
+                courseStartDatesList.push($('#course2').attr("courseStartDate2"));
+                courseEndDatesList.push($('#course2').attr("courseEndDate2"));
+                courseFeeList.push($('#coursePrice2').text());
+
+            }
+
             $.ajax({
                 url: '../Home/RegistrationForm',
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    courseName: $('#courseName').text(),
+
+                    courseNames: courseNamesList,
                     firstName: $('#firstname').val(),
                     lastName: $('#lastname').val(),
                     organization: $('#organization').val(),
@@ -112,9 +130,9 @@
                     phone: $('#telephone').val(),
                     fax: $('#fax').val(),
                     emailAddress: $('#email').val(),
-                    courseStartDate: courseStartDate,
-                    courseEndDate: courseEndDate,
-                    courseFee: courseFee
+                    courseStartDates: courseStartDatesList,
+                    courseEndDates: courseEndDatesList,
+                    courseFee: courseFeeList
                 }),
                 success: function (result) {
                     $(".ajax-loader").html('');
