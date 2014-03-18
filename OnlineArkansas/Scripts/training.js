@@ -93,7 +93,7 @@
             }
         },
         submitHandler: function (form) {
-            $(".ajax-loader").html("<img src='/img/loader.gif'>");
+            $(".ajax-loader").html("<img src='../img/loader.gif'>");
             $.ajax({
                 url: '../Home/RegistrationForm',
                 type: "POST",
