@@ -90,14 +90,13 @@
 
                 $(".ajax-loader").html("<img src='../img/loader.gif'>");
 
-                for (i = 1; i <= $('input[name="courses[]"]:checked').length; i++) {
-                    if ($('#course' + i).is(':checked') == true) {
-                        courseNamesList.push($('#courseName' + i).text());
-                        courseStartDatesList.push($('#course' +i ).attr("courseStartDate" + i));
-                        courseEndDatesList.push($('#course' +i).attr("courseEndDate" +i ));
-                        courseFeeList.push($('#coursePrice' +i).text());
-                    }
-                }
+                $('input[name="courses[]"]:checked').each(function (index) {
+                    courseNamesList.push($(this).attr("courseName"));
+                    courseStartDatesList.push($(this).attr("courseStartDate"));
+                    courseEndDatesList.push($(this).attr("courseEndDate"));
+                    courseFeeList.push($(this).attr("coursePrice"));
+                })
+
 
                 $.ajax({
                     url: '../Home/RegistrationForm',
