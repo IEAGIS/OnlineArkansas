@@ -140,6 +140,16 @@ namespace OnlineArkansas.Controllers
             msgText = msgText + "<tr><td>Telephone:</td><td>" + registrationEntity.phone + "</td></tr>";
             msgText = msgText + "<tr><td>Fax:</td><td>" + registrationEntity.fax + "</td></tr>";
             msgText = msgText + "<tr><td>Email:</td><td>" + registrationEntity.emailAddress + "</td></tr>";
+            msgText = msgText + "<tr><td colspan='2'>Courses Registered:</td></tr>";
+
+            for (var i = 0; i <= registrationEntity.courseNames.Count - 1; i++)
+            {
+                msgText = msgText + "<tr><td>Course " + (i+1) + "</td><td>" + registrationEntity.courseNames[i] + "</td></tr>";
+                msgText = msgText + "<tr><td>Start Date" + "</td><td>" + registrationEntity.courseStartDates[i] + "</td></tr>";
+                msgText = msgText + "<tr><td>End Date" + "</td><td>" + registrationEntity.courseEndDates[i] + "</td></tr>";
+                msgText = msgText + "<tr><td>Fee" + "</td><td>$ " + registrationEntity.courseFee[i] + "</td></tr>";
+            }
+
             msgText = msgText + "<tr><td colspan='2'>Invoice and location instructions will be mailed or faxed to you prior to the class.</td></tr>";  
             msgText = msgText + "</table>";
             msg.Body = msgText;

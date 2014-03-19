@@ -11,20 +11,8 @@
     var courseFeeList = [];
 
     $(".fundamentals").click(function () {
-        //var courseName = $(this).attr("course");
-        //var courseDate = $(this).attr("date");
-        //var coursePrice = $(this).attr("price");
-        //courseStartDate = $(this).attr("startDate");
-        //courseEndDate = $(this).attr("endDate");
-        //courseFee = $(this).attr("price");
-
         reset();
-
         $("#fundamentalsRegistration").dialog("open");
-        //$("#courseName").text(courseName);
-        //$("#courseDate").text(courseDate);
-        //$("#coursePrice").text(coursePrice);
-
     });
 
     $('#telephone').mask('(000) 000-0000');
@@ -61,6 +49,7 @@
                 required: true,
                 email: true
             }
+
         },
         messages: {
             firstname: {
@@ -92,63 +81,81 @@
                 required: "Either an email or fax is required",
                 email: "Please enter a valid email address"
             }
+
         },
         submitHandler: function (form) {
-            $(".ajax-loader").html("<img src='../img/loader.gif'>");
-            if ($('#course1').is(':checked') == true) {
-                courseNamesList.push($('#courseName1').text());
-                courseStartDatesList.push($('#course1').attr("courseStartDate1"));
-                courseEndDatesList.push($('#course1').attr("courseEndDate1"));
-                courseFeeList.push($('#coursePrice1').text());
 
-                //testVar = $('input[name="courses[]"]:checked')[0].attributes
-            }
-            if ($('#course2').is(':checked') == true) {
-                courseNamesList.push($('#courseName2').text());
-                courseStartDatesList.push($('#course2').attr("courseStartDate2"));
-                courseEndDatesList.push($('#course2').attr("courseEndDate2"));
-                courseFeeList.push($('#coursePrice2').text());
 
-            }
+            if ($('input[name="courses[]"]:checked').length > 0) {
 
-            $.ajax({
-                url: '../Home/RegistrationForm',
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({
+                $(".ajax-loader").html("<img src='../img/loader.gif'>");
 
-                    courseNames: courseNamesList,
-                    firstName: $('#firstname').val(),
-                    lastName: $('#lastname').val(),
-                    organization: $('#organization').val(),
-                    address1: $('#address').val(),
-                    address2: $('#address2').val(),
-                    city: $('#city').val(),
-                    state: $('#state').val(),
-                    zipCode: $('#zipcode').val(),
-                    phone: $('#telephone').val(),
-                    fax: $('#fax').val(),
-                    emailAddress: $('#email').val(),
-                    courseStartDates: courseStartDatesList,
-                    courseEndDates: courseEndDatesList,
-                    courseFee: courseFeeList
-                }),
-                success: function (result) {
-                    $(".ajax-loader").html('');
-                    $("#fundamentalsRegistration").dialog("close");
-                    alert("Congratulations! " + result.firstName + ". You have successfully registered. Invoice and location instructions will be mailed or faxed to you prior to the class.");
-                },
-                error: function (result) {
-                    alert("Oops! Your registration has failed. Please try again.");
+                for (i = 1; i <= $('input[name="courses[]"]:checked').length; i++) {
+                    if ($('#course' + i).is(':checked') == true) {
+                        courseNamesList.push($('#courseName' + i).text());
+                        courseStartDatesList.push($('#course' +i ).attr("courseStartDate" + i));
+                        courseEndDatesList.push($('#course' +i).attr("courseEndDate" +i ));
+                        courseFeeList.push($('#coursePrice' +i).text());
+                    }
                 }
 
-            });
+                $.ajax({
+                    url: '../Home/RegistrationForm',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+
+                        courseNames: courseNamesList,
+                        firstName: $('#firstname').val(),
+                        lastName: $('#lastname').val(),
+                        organization: $('#organization').val(),
+                        address1: $('#address').val(),
+                        address2: $('#address2').val(),
+                        city: $('#city').val(),
+                        state: $('#state').val(),
+                        zipCode: $('#zipcode').val(),
+                        phone: $('#telephone').val(),
+                        fax: $('#fax').val(),
+                        emailAddress: $('#email').val(),
+                        courseStartDates: courseStartDatesList,
+                        courseEndDates: courseEndDatesList,
+                        courseFee: courseFeeList
+                    }),
+                    success: function (result) {
+                        $(".ajax-loader").html('');
+                        $("#fundamentalsRegistration").dialog("close");
+                        alert("Congratulations! " + result.firstName + ". You have successfully registered. Invoice and location instructions will be mailed or faxed to you prior to the class.");
+                    },
+                    error: function (result) {
+                        $(".ajax-loader").html('');
+                        alert("Oops! Your registration has failed. Please try again.");
+                    }
+
+                });
+            }
+            else {
+
+                $('#coursesChecked').text('Please select at least one course');
+            }
+
             return false;
         }
 
 
     });
+
+    function checkedCoursesLength() {
+        var len = $('input[name="courses[]"]:checked').length;
+        if (len <= 0) {
+            $('#coursesChecked').text('Please select at least one course');
+        }
+        else {
+            $('#coursesChecked').text('');
+        }
+    }
+
+    $('input[name="courses[]"]').on('click', checkedCoursesLength);
 
     function reset() {
         $('#firstname').val('');
@@ -162,6 +169,9 @@
         $('#telephone').val('');
         $('#fax').val('');
         $('#email').val('');
+        $('input[name="courses[]"]').attr('checked', false);
+        $('#coursesChecked').text('');
+        $(".ajax-loader").html('');
         $("#registrationForm").validate().resetForm();
     }
 

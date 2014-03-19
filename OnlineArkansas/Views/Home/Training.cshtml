@@ -12,7 +12,7 @@
 			<div id="content" role="main" >
 				<h2>GIS Training Courses</h2>
 
-                <a id ="emailFaxRegister" class="fundamentals" href="#">Email/Fax Register for class</a><br /><br />
+                <a id ="emailFaxRegister" class="fundamentals" href="#">Register for class</a><br /><br />
 
 				<div id="accordion">
 					<h4>ArcGIS 10 Model Builder</h4>
@@ -78,11 +78,11 @@
 							<!-- <br><Font color="black">(Class Schedule Dependent Upon Demand)</font></p> -->
 							</p>
 							
-							<p align="left">
+							<!--p align="left">
                             <font color="#ff0000" face="Trebuchet MS" size="3">
                             <a id ="modelBuilder" class="fundamentals" href="#" course="ArcGIS 10 Model Builder" price="700" date="April 21-22, 2014" startDate="04/21/2014" endDate="04/22/2014">
                             Email/Fax Register for this class</a>
-                            </font></p>
+                            </font></p-->
 
 							<!-- <p align="left">
 							<font color=black size="+1" face="Trebuchet MS">Dependent upon demand:</font></p> 
@@ -148,11 +148,11 @@
 							</font> --> 
 							</p>
 							
-							<p align="left">
+							<!--p align="left">
                             <font color="#ff0000" face="Trebuchet MS" size="3">
 							<a id ="python" class="fundamentals" href="#" course="Python for ArcGIS 10" price="1050" date="April 23-25, 2014" startDate="04/23/2014" endDate="04/25/2014">
                             Email/Fax Register for this class
-                            </a></font></p>
+                            </a></font></p-->
 							
 							<p align="left">
 							<font face="Trebuchet MS" size="4">
@@ -204,20 +204,44 @@
 
 		<font face="Trebuchet MS">
                 
-				<p align="left" style="padding-left: 10px; padding-top:5px">
-                <fieldset id="coursearray">
-                    <input type="checkbox" id="course1" name="courses[]" value="modelBuilder" courseStartDate1="04/21/2014" courseEndDate1="04/22/2014"/>
-					COURSE NAME:  <span id="courseName1">ArcGIS 10 Model Builder</span>	&nbsp;&nbsp;  
-                    DATE:  <span id="courseDate1">April 21-22, 2014</span> &nbsp;&nbsp; 
-                    PRICE: &nbsp; $<span id="coursePrice1">700</span> <br/>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="course1" name="courses[]" value="modelBuilder" courseStartDate1="04/21/2014" courseEndDate1="04/22/2014"/>
+                        </td>
+                        <td style="width:300px; height: 25px;">
+                            COURSE NAME:  <span id="courseName1">ArcGIS 10 Model Builder</span>
+                        </td>
+                        <td style="width:200px">
+                            DATE:  <span id="courseDate1">April 21-22, 2014</span>
+                        </td>
+                        <td>
+                            PRICE: &nbsp; $<span id="coursePrice1">700</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="course2" name="courses[]" value="python" courseStartDate2="04/23/2014" courseEndDate2="04/25/2014"/>
+                        </td>
+                        <td style="width:300px; height: 25px;">
+                            COURSE NAME:  <span id="courseName2">Python for ArcGIS 10</span>
+                        </td>
+                        <td style="width:200px">
+                            DATE:  <span id="courseDate2">April 23-25, 2014</span>
+                        </td>
+                        <td>
+                            PRICE: &nbsp; $<span id="coursePrice2">1050</span>
+                        </td>
+                    </tr>
+                </table>
 
-                    <input type="checkbox" id="course2" name="courses[]" value="python" courseStartDate2="04/23/2014" courseEndDate2="04/25/2014"/>
-					COURSE NAME:  <span id="courseName2">Python for ArcGIS 10</span>	&nbsp;&nbsp;  
-                    DATE:  <span id="courseDate2">April 23-25, 2014</span> &nbsp;&nbsp; 
-                    PRICE: &nbsp; $<span id="coursePrice2">1050</span> <br/><br/>
-				</fieldset>
-                </p>
-				
+               <font size="2pt"><i>
+               <label id="coursesChecked" style="color:#FF0000"></label>
+               </i>
+               </font>
+
+				<br /><br /><br />
+
 					<table border="1" width="100%">
 					<tr>
 					<td align="left" style="padding-left: 10px">
