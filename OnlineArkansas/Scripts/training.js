@@ -97,7 +97,6 @@
                     courseFeeList.push($(this).attr("coursePrice"));
                 })
 
-
                 $.ajax({
                     url: '../Home/RegistrationForm',
                     type: "POST",
