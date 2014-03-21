@@ -1,3 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_MapLayout.cshtml";
+        if(ViewContext.Controller.ViewBag.Template == "GIS"){
+            Layout = "~/Views/Shared/_MapLayout.cshtml";
+        }       
 }

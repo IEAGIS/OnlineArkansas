@@ -19,6 +19,13 @@ namespace OnlineArkansas.Controllers
         [AllowCrossSiteJson]
         public ActionResult SchoolDist()
         {
+            ViewBag.Template = "GIS";
+            return View();
+        }
+
+        public ActionResult CampusMap()
+        {
+            ViewBag.Template = "CampusMap";
             return View();
         }
 

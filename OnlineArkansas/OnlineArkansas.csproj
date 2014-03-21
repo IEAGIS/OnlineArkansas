@@ -280,6 +280,7 @@
     <Content Include="img\audience-nav-bg.jpg" />
     <Content Include="img\body-default-bg.gif" />
     <Content Include="img\body-gradient.jpg" />
+    <Content Include="img\businessexterior.jpg" />
     <Content Include="img\campusbuildingmap2013.jpg" />
     <Content Include="img\contact-icon.gif" />
     <Content Include="img\GIS1.jpg" />
@@ -425,6 +426,7 @@
     <None Include="Scripts\home\README.md" />
     <Content Include="Views\Home\Assistance.cshtml" />
     <Content Include="Views\Home\GpsInfo.cshtml" />
+    <Content Include="Views\Map\CampusMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
