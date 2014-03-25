@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
+using BotDetect.Web.UI.Mvc;
+using System.Web.UI;
 
 namespace OnlineArkansas.Controllers
 {
@@ -28,6 +30,19 @@ namespace OnlineArkansas.Controllers
         {
             return View();
         }
+
+        //
+        // GET: CheckCaptcha/
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CheckCaptcha(string captchaId, string instanceId,
+          string userInput)
+        {
+            bool ajaxValidationResult =
+              MvcCaptcha.Validate(captchaId, userInput, instanceId);
+
+            return Json(ajaxValidationResult, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
         public ActionResult RegistrationForm(RegistrationEntity registrationEntity)

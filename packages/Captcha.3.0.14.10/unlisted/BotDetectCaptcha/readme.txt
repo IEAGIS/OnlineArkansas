@@ -1,0 +1,1 @@
+This package is no longer updated, please use https://www.nuget.org/packages/Captcha/ instead.
