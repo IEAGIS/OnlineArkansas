@@ -2923,3 +2923,40 @@ code {
 	color: red;
 }
 
+/****************************************** Training Page ******************************/
+
+.fontSize3 
+{
+    font-size: 3;
+}
+
+.fontSize4
+{
+    font-size: 4;
+}
+.fontSize2
+{
+    font-size: 2;
+}
+.font10pt
+{
+    font-size: 10pt;
+}    
+.trainingFont 
+{
+    font-family:"Trebuchet MS";
+    text-align: left;
+}
+
+.fontRed
+{
+    color:Red;
+} 
+.fontItalic
+{
+    font-style:italic;
+}    
+.courseTable
+{
+    width:100%;
+}    

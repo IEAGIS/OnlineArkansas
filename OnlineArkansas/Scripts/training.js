@@ -2,7 +2,7 @@
 
     $.validator.addMethod("one_required", function () {
         return $("#registrationForm").find(".one_required:checked").length > 0;
-    }, 'Please select at least one class.');
+    }, 'Please select at least one course.');
 
     $("#accordion").accordion({
         collapsible: true,
@@ -113,7 +113,7 @@
             zipcode: {
                 required: "Please provide your Zip Code",
                 digits: "Zip code can contain only digits",
-                minlength: "Zip Code should contain atleast 5 digits"
+                minlength: "Zip Code should contain at least 5 digits"
             },
             telephone: {
                 required: "Please provide your telephone number",
@@ -127,8 +127,10 @@
             email: {
                 required: "Either an email or fax is required",
                 email: "Please enter a valid email address"
+            },
+            CaptchaCode: {
+                required: "Validation code is required."
             }
-
         },
         submitHandler: function (form) {
 
@@ -231,7 +233,7 @@
     $("#fundamentalsRegistration").dialog({
         autoOpen: false,
         height: 800,
-        width: 700,
+        width: 750,
         modal: true,
         buttons: {
             "Register": function () {
