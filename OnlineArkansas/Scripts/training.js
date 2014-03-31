@@ -209,6 +209,11 @@
 
     });
 
+    function captchaStatusReset() {
+        $('#status').text('');
+    }
+    $('#CaptchaCode').on('keydown', captchaStatusReset);
+
     function reset() {
         $('#firstname').val('');
         $('#lastname').val('');
@@ -226,6 +231,7 @@
         $('#status').text('');
         $(".ajax-loader").html('');
         $("#CaptchaCode").get(0).Captcha.ReloadImage();
+        $('#status').text('');
         $("#registrationForm").validate().resetForm();
     }
 
