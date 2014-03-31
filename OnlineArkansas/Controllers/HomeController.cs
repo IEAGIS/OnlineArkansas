@@ -160,8 +160,8 @@ namespace OnlineArkansas.Controllers
             for (var i = 0; i <= registrationEntity.courseNames.Count - 1; i++)
             {
                 msgText = msgText + "<tr><td>Course " + (i+1) + "</td><td>" + registrationEntity.courseNames[i] + "</td></tr>";
-                msgText = msgText + "<tr><td>Start Date" + "</td><td>" + registrationEntity.courseStartDates[i] + "</td></tr>";
-                msgText = msgText + "<tr><td>End Date" + "</td><td>" + registrationEntity.courseEndDates[i] + "</td></tr>";
+                msgText = msgText + "<tr><td>Start Date" + "</td><td>" + registrationEntity.courseStartDates[i].ToShortDateString() + "</td></tr>";
+                msgText = msgText + "<tr><td>End Date" + "</td><td>" + registrationEntity.courseEndDates[i].ToShortDateString() + "</td></tr>";
                 msgText = msgText + "<tr><td>Fee" + "</td><td>$ " + registrationEntity.courseFee[i] + "</td></tr>";
             }
 
