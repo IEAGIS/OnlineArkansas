@@ -36,6 +36,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PublishDatabases>false</PublishDatabases>
+    <DeployIisAppPath>Default Web Site/OnlineArkansas</DeployIisAppPath>
+    <DesktopBuildPackageLocation>N:\OnlineArkansas\OnlineArkansas.zip</DesktopBuildPackageLocation>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BotDetect">
