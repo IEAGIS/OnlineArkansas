@@ -280,7 +280,9 @@
     <Content Include="Content\widget.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="img\ArFire.png" />
+    <Content Include="img\ARFire.png" />
+    <Content Include="img\ArFire_bk.png" />
+    <Content Include="img\ARFire_btn.png" />
     <Content Include="img\arkansas.jpg" />
     <Content Include="img\ar_gis_board.gif" />
     <Content Include="img\ar_gis_forum.jpg" />
