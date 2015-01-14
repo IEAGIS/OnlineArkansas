@@ -1,56 +1,122 @@
 ﻿@{
     ViewBag.Title = "Staff";
 }
-
+@section Scripts
+{
+    <script>
+        $("#accordion").accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
+    </script>
+}	
 		<div id="container">
 			<div id="content" role="main" >
-				<h2>GIS Staff</h2>				
-						<table cellspacing="0" cellpadding="0" border="0"> 
-						<tbody>
-							<tr>
-								<td width="380">
-
-									  <p><b><big class="Btxt">Inderpreet (Sunny) Farmahan</big><br>
-											<span class="txt">Director, UALR GIS Applications Laboratory</span></b> <br/>
-											<span class="txt"><a href="mailto:ilfarmahan@ualr.edu">ilfarmahan@ualr.edu</a></span>
-									  </p>
-
-                                      <p><b><span class="Btxt">Geoffrey Joseph</span><br>
-											<span class="txt">Applications Programmer</span></b>
-											<span class="txt"><a href="mailto:jojoseph@ualr.edu">jojoseph@ualr.edu</a></span>
-									  </p>
-
-									  <p><b><span class="Btxt">Kevin Koonce</span><br>
-											<span class="txt">GIS Analyst</span></b><br/>
-											<span class="txt"><a href="mailto:kwkoonce@ualr.edu">kwkoonce@ualr.edu</a></span>
-									    </p>																				  
-											 
-									  <p><b><span class="Btxt">Deano Traywick</span><br>
-											 <span class="txt">GIS Analyst</span></b> <br/>
-											 <span class="txt"><a href="mailto:jdtraywick@ualr.edu">jdtraywick@ualr.edu</a></span>
-									    </p>
-
-                                      <p><b><span class="Btxt">Gabrielle Woodruff</span><br>
-										   <span class="txt">GIS Technician</span></b><br/>
-										   <span class="txt"><a href="mailto:gasmith@ualr.edu">gasmith@ualr.edu</a></span>
-									  </p>
-
-								</td>
-								<td width="299">
-								
-                                        <p><b><span class="Btxt">Jim Youngquist</span><br>
-										  <span class="txt">Executive Director, IEA</span>&nbsp; </b>
-										  <span class="txt"><a href="mailto:jlyoungquist@ualr.edu">jlyoungquist@ualr.edu</a></span>
-									    </p>
-
-										<p><b><span class="Btxt">Phyllis Poche</span><br>
-											  <span class="txt">Associate Director, IEA</span></b>
-											  <span class="txt"><a href="mailto:pnpoche@ualr.edu">pnpoche@ualr.edu</a></span>
-										</p>
-								</td>                              
-							</tr>
-						</tbody>
-						</table>  
- 
+				<h2>Staff</h2>
+                        <div id="accordion" class="trainingFont">				
+                        <h4><span>GIS Laboratory</span></h4>
+                        <div>
+						    <table cellspacing="0" cellpadding="0" border="0"> 
+						        <tbody>
+                                    <tr>
+                                        <td valign="top"><strong>Inderpreet (Sunny) Farmahan <br> </strong></td>
+                                        <td valign="top">Director</td>
+                                        <td valign="top"><a href="mailto:ilfarmahan@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Kevin Koonce</strong></td>
+                                        <td valign="top">GIS Analyst</td>
+                                        <td valign="top"><a href="mailto:kwkoonce@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Deano Traywick</strong></td>
+                                        <td valign="top">GIS Analyst</td>
+                                        <td valign="top"><a href="mailto:jdtraywick@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Gabby Woodruff</strong></td>
+                                        <td valign="top">GIS Technician</td>
+                                        <td valign="top"><a href="mailto:gawoodruff@ualr.edu">Email</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4><span>IEA Administration</span></h4>
+                            <div>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td valign="top"><strong>Jim Youngquist <br> </strong></td>
+                                        <td valign="top">IEA Executive Director</td>
+                                        <td valign="top"><a href="mailto:jlyoungquist@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Phyllis Poche </strong></td>
+                                        <td valign="top">IEA Associate Director</td>
+                                        <td valign="top"><a href="mailto:pnpoche@ualr.edu">Email</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4><span>Economic Impact, Analysis, Research and Forecast</span></h4>
+                            <div>
+                                <table>
+                                <tbody>
+                                <tr>
+                                    <td valign="top"><strong>Michael Pakko </strong></td>
+                                    <td valign="top">State Economic Forecaster</td>
+                                    <td valign="top"><a href="mailto:mrpakko@ualr.edu">Email</a></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top"><strong>Gregory Hamilton<br> </strong></td>
+                                    <td valign="top">Director, Senior Research Economist</td>
+                                    <td valign="top"><a href="mailto:glhamilton@ualr.edu">Email</a></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top"><strong>Dennis Robinson </strong></td>
+                                    <td valign="top">Senior Economic Researcher</td>
+                                    <td valign="top"><a href="mailto:dprobinson@ualr.edu">Email</a></td>
+                                </tr>                            
+                                <tr>
+                                    <td valign="top"><strong>Melody Muldrow</strong></td>
+                                    <td valign="top">Research Assistant Specialist</td>
+                                    <td valign="top"><a href="mailto:mlmuldrow@ualr.edu">Email</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <h4><span>Census, Databases and Analysis</span></h4>
+                            <div>                                
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td valign="top"><strong>David Rasmussen</strong></td>
+                                        <td valign="top">Database Specialist</td>
+                                        <td valign="top"><a href="mailto:drrasmussen@ualr.edu">Email</a></td>
+                                    </tr>	
+                                    <tr>
+                                        <td valign="top"><strong>Geoffery Joseph</strong></td>
+                                        <td valign="top">Applications Programmer</td>
+                                        <td valign="top"><a href="mailto:jojoseph@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Alison Wiley </strong></td>
+                                        <td valign="top">Demographic Research</td>
+                                        <td valign="top"><a href="mailto:alwiley@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Miranda White</strong></td>
+                                        <td valign="top">Research Assistant</td>
+                                        <td valign="top"><a href="mailto:mmwhite@ualr.edu">Email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top"><strong>Ronald Swager </strong></td>
+                                        <td valign="top">Senior Research Specialist</td>
+                                        <td valign="top"><a href="mailto:rjswager@ualr.edu">Email</a></td>
+                                    </tr>
+						            </tbody>
+						        </table> 
+                           </div> 
+                    </div><!-- #accordion -->
 			</div><!-- #content -->
 		</div><!-- #container -->

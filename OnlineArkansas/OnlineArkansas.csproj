@@ -324,6 +324,7 @@
     <Content Include="img\signature.png" />
     <Content Include="img\trilevel3.jpg" />
     <Content Include="img\ualr-logo.png" />
+    <Content Include="img\UALR-Reynolds-Center.jpg" />
     <Content Include="img\verMenuImages.png" />
     <Content Include="img\vert-rule.png" />
     <Content Include="img\white-logo2.png" />
@@ -445,8 +446,9 @@
     <Content Include="Views\Map\_ViewStart.cshtml" />
     <None Include="Scripts\home\README.md" />
     <Content Include="Views\Home\Assistance.cshtml" />
-    <Content Include="Views\Home\GpsInfo.cshtml" />
+    <Content Include="Views\Home\Facilities.cshtml" />
     <Content Include="Views\Map\CampusMap.cshtml" />
+    <Content Include="Views\Shared\_TrainingLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

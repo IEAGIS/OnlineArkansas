@@ -28,7 +28,7 @@ namespace OnlineArkansas.Controllers
         }
         public ActionResult Training()
         {
-            return View();
+            return View("Training","_TrainingLayout");
         }
 
         //
@@ -193,7 +193,7 @@ namespace OnlineArkansas.Controllers
         {
             return View();
         }
-        public ActionResult GpsInfo()
+        public ActionResult Facilities()
         {
             return View();
         }
